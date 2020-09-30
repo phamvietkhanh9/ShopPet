@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="well np" th:fragment="cart">
+
+
+    <div class="row">
+        <div class="span12">
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+                <li class="active">Check Out</li>
+            </ul>
+            <div class="well well-small">
+                <h1>Giỏ Hàng </h1>
+                <hr class="soften"/>
+
+                <table class="table table-bordered table-condensed" >
+                    <thead>
+                    <tr>
+                        <th>Hình ảnh</th>
+                        <th>Tên </th>
+<!--                        <th>Màu sắc</th>-->
+                        <th>Giá bán</th>
+                        <th>Số lượng </th>
+                        <th>Chỉnh sửa </th>
+                        <th>Xóa </th>
+                        <th>Tổng tiền</th>
+                    </tr>
+                    </thead>
+                    <tr th:each="item:${Cart}">
+                     <td>
+                         <img width="100" th:src="@{/user/img/{img}(img=${item.value.product.img})}" alt=""></td>-
+                        <td><p th:text="${item.value.product.name}"></p> </td>
+<!--                        <td><span class="shopBtn" th:style="background-color:${item.value.product.color};"><span class="icon-ok"></span></span> </td>-->
+                        <td><span ><span th:text="${#numbers.formatDecimal(item.value.product.price, 0, 'POINT', 0, 'COMMA')}" ></span></span> </td>
+
+                        <td>
+                            <input class="span1"  style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="number" min="0" max="1000" value="1">
+                        </td>
+<!--                        -->
+<!--                        <td>-->
+<!--                            <input class="span1"-->
+<!--                                   style="max-width:34px" placeholder="1"-->
+<!--                                   th:id="quanty-cart-${}"-->
+<!--                                   size="16"-->
+<!--                                   type="number" min="0" max="1000"-->
+<!--                                   value="1"-->
+<!--                                  th:value="${ item.value.quanty }"-->
+<!--                            >-->
+<!--                        </td>-->
+                        <td>
+                            <a class="shopBtn" th:href="@{/EditCart/1}">
+                            <span class="icon-edit"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <a class="shopBtn" th:href="@{/DeleteCart/{id}(id=${ item.key })}" >
+                            <span class="icon-remove"></span>
+                            </a>
+                        </td>
+                        <td>₫</td>
+                    </tr>
+                </table><br/>
+
+                <a href="/" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue Shopping </a>
+                <a href="#" class="shopBtn btn-large pull-right">Thanh Toan <span class="icon-arrow-right"></span></a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</html>

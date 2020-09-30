@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<!--PhanTrang-->
+<div  th:fragment="phantrang" th:each="item:${ paginateInfo.currentPage}" >
+            <div class="pagination" >
+                <a href="#">&laquo;</a>
+                <a th:href="@{/san-pham/{id}(id=${idCategory})}" th:text="${item}">1</a>
+<!--                <a th:href="@{/san-pham/2}">2</a>-->
+<!--                <a th:href="@{/san-pham/3}">3</a>-->
+<!--                <a th:href="@{/san-pham/4}">4</a>-->
+<!--                <a th:href="@{/san-pham/5}">5</a>-->
+<!--                <a th:href="@{/san-pham/6}">6</a>-->
+<!--                <a th:href="@{/san-pham/7}">7</a>-->
+<!--                <a th:href="@{/san-pham/8}">8</a>-->
+<!--                <a th:href="@{/san-pham/9}">9</a>-->
+<!--                <a th:href="@{/san-pham/10}">10</a>-->
+<!--                <a th:href="@{/san-pham/11}">11</a>-->
+<!--                <a th:href="@{/san-pham/12}">12</a>-->
+                <a href="#">&raquo;</a>
+            </div>
+
+        <style>
+            .pagination {
+                display: inline-block;
+            }
+
+            .pagination a {
+                color: black;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+            }
+
+            .pagination a.active {
+                background-color: #4CAF50;
+                color: white;
+                border-radius: 5px;
+            }
+
+            .pagination a:hover:not(.active) {
+                background-color: #ddd;
+                border-radius: 5px;
+            }
+        </style>
+
+<!--    <div class="col-md-4">-->
+<!--        <div class="float-right" th:if="${pagination.getTotalPages() > 1}">-->
+<!--            <ul class="pagination">-->
+<!--                <li class="page-item" th:if="${page>1}">-->
+<!--                    <a class="page-link" th:href="@{/product/list(page=${page}-1, limit=${limit})}">Previous</a>-->
+<!--                </li>-->
+<!--                <li class="page-item" th:if="${page>1}">-->
+<!--                    <a class="page-link" th:href="@{/product/list(page=${page}-1, limit=${limit})}"-->
+<!--                       th:text="${page}-1"></a>-->
+<!--                </li>-->
+<!--                <li class="page-item active"><a class="page-link" href="#" th:text="${page}"></a></li>-->
+<!--                <li class="page-item" th:if="${page<pagination.getTotalPages()}">-->
+<!--                    <a class="page-link" th:href="@{/product/list(page=${page}+1, limit=${limit})}"-->
+<!--                       th:text="${page}+1"></a>-->
+<!--                </li>-->
+<!--                <li class="page-item" th:if="${page<pagination.getTotalPages()}">-->
+<!--                    <a class="page-link"-->
+<!--                       th:href="@{/product/list(page=${page}+1, limit=${limit})}">Next</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+</html>

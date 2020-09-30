@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="well well-small" th:fragment="bodyproduct">
+    <h3>Danh Sách Sản Phẩm
+        <select
+            class="pull-right">
+        <option>A - Z</option>
+        <option>Cao - Thấp</option>
+    </select></h3>
+
+    <div class="row-fluid">
+        <ul class="thumbnails" >
+            <div th:each="products:${ productsPaginate }">
+                <li class="span3">
+                    <div class="thumbnail"  >
+                        <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${products.id_product})}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                        <a><img th:src="@{/user/img/{img}(img=${products.img})}" ></a>
+                        <div class="caption">
+                            <a th:href="@{/chi-tiet-san-pham/{id}(id=${products.id_product})}" ><h5 th:utext="${products.name}"></h5></a>
+                            <h4>
+                                <a class="defaultBtn" th:href="@{/chi-tiet-san-pham/{id}(id=${products.id_product})}" title="Click to view"><span class="icon-zoom-in"></span></a>
+                                <a class="shopBtn" href="#" title="add to cart"><span class="icon-plus"></span></a>
+
+                                <span th:text="${#numbers.formatDecimal(products.price, 0, 'POINT', 0, 'COMMA')}"></span><td> ₫</td>
+                            </h4>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </ul>
+    </div>
+
+    <head th:replace="_phantrang :: phantrang"></head>
+</div>
+
+</html>

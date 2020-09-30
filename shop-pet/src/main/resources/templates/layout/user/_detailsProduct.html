@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <div class="span9 product-content" th:fragment="detail" >
+
+
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li><a href="products.html">Items</a> <span class="divider">/</span></li>
+            <li class="active">Preview</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+<!--                    <div id="myCarousel" class="carousel slide cntr">-->
+                    <div class="carousel slide cntr">
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <a href="#"> <img th:src="@{/user/img/{img}(img=${product.img})}" alt="" style="width:100%"></a>
+                            </div>
+                        </div>
+<!--                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>-->
+<!--                        <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>-->
+                    </div>
+                </div>
+                <div class="span7"  >
+                    <h3 th:text="${product.name}"></h3>
+                    <hr class="soft"/>
+
+                    <form class="form-horizontal qtyFrm" method='get' th:action="@{/AddCart/{id}(id=${product.id_product})}" >
+                        <div class="control-group">
+                            <label class="control-label"><span th:text="${#numbers.formatDecimal(product.price, 0, 'POINT', 0, 'COMMA')}"></span><td> ₫</td></label>
+                            <div class="controls">
+                                <input type="number" min="0" value="0" class="span6">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label"><span>Color</span></label>
+                            <div class="controls">
+                                <select class="span11">
+                                    <option>Red</option>
+                                    <option>Purple</option>
+                                    <option>Pink</option>
+                                    <option>Red</option>
+                                </select>
+                            </div>
+                        </div>
+                        <h4 ></h4>
+                        <p th:text="${product.title}">
+                        </p>
+                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="softn clr"/>
+
+
+            <ul id="productDetail" class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">Chi Tiết Sản Phẩm</a></li>
+                <li class=""><a href="#profile" data-toggle="tab"> Sản Phẩm Lien QUan </a></li>
+            </ul>
+            <div id="myTabContent" class="tab-content tabWrapper">
+                <div class="tab-pane fade active in" id="home" th:each="product:${product}">
+<!--                    <table class="table table-striped">-->
+<!--                        <tbody>-->
+<!--                        <tr class="techSpecRow"><td class="techSpecTD1">Color:</td><td class="techSpecTD2">Black</td></tr>-->
+<!--                        <tr class="techSpecRow"><td class="techSpecTD1">Style:</td><td class="techSpecTD2">Apparel,Sports</td></tr>-->
+<!--                        <tr class="techSpecRow"><td class="techSpecTD1">Season:</td><td class="techSpecTD2">spring/summer</td></tr>-->
+<!--                        <tr class="techSpecRow"><td class="techSpecTD1">Usage:</td><td class="techSpecTD2">fitness</td></tr>-->
+<!--                        <tr class="techSpecRow"><td class="techSpecTD1">Sport:</td><td class="techSpecTD2">122855031</td></tr>-->
+<!--                        <tr class="techSpecRow"><td class="techSpecTD1">Brand:</td><td class="techSpecTD2">Shock Absorber</td></tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+                    <p th:text="${product.details}" ></p>
+                </div>
+
+                <th:block th:var="countlist" th:value="${productByIDCategory.size()}">
+                    <th:block th:each="products:${productByIDCategory.size() > 10 }">
+                        <th:block th:var="countlist" th:value ="10"/>
+                    </th:block>
+                </th:block>
+                <div class="tab-pane fade" id="profile">
+                    <div class="row-fluid" th:each="products:${productByIDCategory}" th:begin="1" th:end="${ countList } " th:varStatus="loop" >
+                        <!--                        <th:block th:each="products:${productByIDCategory}" >-->
+                        <div class="span2">
+                            <img th:src="@{/user/img/{img}(img=${products.img})}" alt="">
+                        </div>
+                        <div class="span6">
+                            <h5 th:text="${products.name}"> </h5>
+                            <p th:text="${product.title}">
+                            </p>
+                        </div>
+                        <div class="span4 alignR">
+                            <form class="form-horizontal qtyFrm">
+                                <h3><span th:text="${#numbers.formatDecimal(product.price, 0, 'POINT', 0, 'COMMA')}"></span><td> ₫</td></h3>
+                                <label class="checkbox">
+                                    <input type="checkbox">  Adds product to compair
+                                </label><br>
+                                <div class="btn-group">
+                                    <a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+                                    <a href="product_details.html" class="shopBtn">VIEW</a>
+                                </div>
+                            </form>
+                        </div>
+                        <hr class="soft">
+        </div>
+        <style>
+            .product-content{
+                overflow-x: hidden;
+            }
+        </style>
+    </div>
+</html>

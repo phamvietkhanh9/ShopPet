@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--Heading-->
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <title>Twitter Bootstrap shopping cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="/user/css/bootstrap.css" rel="stylesheet"/>
+    <link href="/user/style.css" rel="stylesheet"/>
+    <link href="/user/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/user/css/font-awesome-ie7.min.css" rel="stylesheet">
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <link rel="shortcut icon" href="/user/ico/favicon.ico">
+</head>
+
+<!--Header-->
+<div th:fragment="header">
+    <div class="container">
+        <div class="alignR">
+            <div class="pull-left socialNw">
+                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="#"><span class="icon-facebook"></span></a>
+                <a href="#"><span class="icon-youtube"></span></a>
+                <a href="#"><span class="icon-tumblr"></span></a>
+            </div>
+            <a class="active" href="/"> <span class="icon-home"></span> Home</a>
+            <a href="#"><span class="icon-/user"></span> My Account</a>
+            <a href="register.html"><span class="icon-edit"></span> Free Register </a>
+            <a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
+            <a href="/gio-hang"><span class="icon-shopping-cart"></span><span class="badge badge-warning"></span></a>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!--top-->
+    <div class="row" th:fragment="top">
+        <div class="span4">
+            <h1>
+                <a class="logo" href="/"><span></span>
+                    <img src="/user/img/logo-bootstrap-shoping-cart.png" alt="bootstrap sexy shop">
+                </a>
+            </h1>
+        </div>
+        <div class="span4">
+            <div class="offerNoteWrapper">
+                <h1>
+                    <i></i>
+                </h1>
+            </div>
+        </div>
+        <div class="span4 alignR" >
+            <p><br> <strong> Support (24/7) :  0800 1234 678 </strong><br><br></p>
+            <a><span class="icon-shopping-cart" ></span></a>
+<!--            <span <span class="icon-shopping-cart></span></span>-->
+<!--            <span class="btn btn-warning btn-mini">$</span>-->
+<!--            <span class="btn btn-mini">&pound;</span>-->
+<!--            <span class="btn btn-mini">&euro;</span>-->
+        </div>
+    </div>
+
+<!--topr-->
+<div class="well well-small" th:fragment="topr" >
+    <ul th:each="category:${ category }" class="nav nav-list">
+        <li><a th:href="@{/san-pham/{id}(id=${category.id})}" th:text="${category.name}" ><span class="icon-chevron-right"></span></a></li>
+    </ul>
+</div>
+
+
+
+
+<!--js-->
+<div class="nav flex-column nav-tabs" th:fragment="js">
+    <script src="/user/js/jquery.js"></script>
+    <script src="/user/js/bootstrap.min.js"></script>
+    <script src="/user/js/jquery.easing-1.3.min.js"></script>
+    <script src="/user/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+    <script src="/user/js/shop.js"></script>
+</div>
+
+
+
+<!--Footer-->
+<div class="container" th:fragment="footer">
+    <p class="pull-right">
+        <a href="#"><img src="/user/img/maestro.png" alt="payment"></a>
+        <a href="#"><img src="/user/img/mc.png" alt="payment"></a>
+        <a href="#"><img src="/user/img/pp.png" alt="payment"></a>
+        <a href="#"><img src="/user/img/visa.png" alt="payment"></a>
+        <a href="#"><img src="/user/img/disc.png" alt="payment"></a>
+    </p>
+    <span>Copyright &copy;<br> Pham Viet Khanh</span>
+</div>
+
+
+
+</html>
