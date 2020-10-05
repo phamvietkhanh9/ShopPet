@@ -1,8 +1,18 @@
 package com.example.shoppet.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.sql.Date;
 
+@Entity
 public class ProductsDto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_product;
     private int id_category;
     private String size;
@@ -19,9 +29,27 @@ public class ProductsDto {
     private String img;
     private Date created_at;
     private Date updated_at;
+    private int status;
 
     public ProductsDto() {
         super();
+    }
+
+    public ProductsDto(@NotNull @Size(min = 8) String name,String title,String detail, String img, @Min(1) int price) {
+        this.name = name;
+        this.name = title;
+        this.name = detail;
+        this.img = img;
+        this.price = price;
+        this.status = 1;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public long getId_product() {

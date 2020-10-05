@@ -40,9 +40,14 @@ public class HomeServiceImp implements IHomeService {
 
     public List<ProductsDto> GetDataProducts() {
         List<ProductsDto> listProducts = productDao.GetDataProducts();
-    //    listProducts.get(); //.getId_color();
         return listProducts;
     }
+
+    public List<ProductsDto> GetDataProductsA() {
+        List<ProductsDto> listProducts = productDao.GetDataProductsA();
+        return listProducts;
+    }
+
     public List<ProductsDto> GetDataAllProducts() {
         List<ProductsDto> listProducts = productDao.GetDataProducts();
         //    listProducts.get(); //.getId_color();

@@ -51,23 +51,6 @@ public class CategoryController extends BaseController {
         _mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id) ,paginateInfo.getStart(), totalProductsPage));
         return _mvShare;
     }
-//    @RequestMapping(path = "/san-pham/{id}")
-//    public ModelAndView getListProduct(Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit, @PathVariable String id , @PathVariable String currentPage) {
-//        Page<ProductsDto> pagination = productModel.findProductsByStatus(1, PageRequest.of(page - 1, limit));
-//        model.addAttribute("pagination", pagination);
-//        model.addAttribute("page", page);
-//        model.addAttribute("limit", limit);
-//        model.addAttribute("datetime", Calendar.getInstance().getTime());
-//
-//        int totalData = categoryService.GetAllProductsByID(Integer.parseInt(id)).size();
-//        PaginatesDto paginateInfo = paginateService.GetInfoPaginates(totalData, totalProductsPage, Integer.parseInt(currentPage));
-//        _mvShare.addObject("idCategory", id);
-//        _mvShare.addObject("paginateInfo", page);
-//        _mvShare.addObject("productsPaginate", categoryService.GetDataProductsPaginate(Integer.parseInt(id),paginateInfo.getStart(), totalProductsPage));
-//        _mvShare.setViewName("user/products");
-//        return _mvShare;
-//    }
-
 
     @RequestMapping(value = {"/pages/2"}, method = RequestMethod.GET)
     public ModelAndView ListProduct() {

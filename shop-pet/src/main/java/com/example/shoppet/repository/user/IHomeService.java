@@ -1,5 +1,6 @@
 package com.example.shoppet.repository.user;
 
+import com.example.shoppet.dto.ProductsDto;
 import com.example.shoppet.entity.Slides;
 import com.example.shoppet.entity.user.Categorys;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,4 +12,8 @@ public interface IHomeService {
     @Autowired
     public List<Slides> GetDataSlide();
     public List<Categorys> GetDatacategorys();
+    public List<ProductsDto> GetDataProducts();
+    public List<ProductsDto> GetDataAllProducts();
+    public List<ProductsDto> GetDataProductsNew();
+    public List<ProductsDto> GetDataProductsA();
 }

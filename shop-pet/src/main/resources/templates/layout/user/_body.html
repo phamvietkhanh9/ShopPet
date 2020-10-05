@@ -7,23 +7,23 @@
     <head th:replace="layout/user/_layout :: topr"></head>
 
     <div class="well well-small alert alert-warning cntr">
-        <h2>50% Discount</h2>
+        <h2> Giảm Giá 50% </h2>
         <p>
-            only valid for online order. <br><br>
+             <br><br>
 <!--            <a class="defaultBtn" href="#">Click here </a>-->
         </p>
     </div>
     <div class="well well-small" ><a href="#"><img src="/user/img/paypal.jpg" alt="payment method paypal"></a></div>
 
-    <a class="shopBtn btn-block" href="#">Upcoming products <br><small>Click to view</small></a>
+    <a class="shopBtn btn-block" href="#">Sản phẩm sắp ra mắt <br><small></small></a>
     <br>
     <br>
     <ul class="nav nav-list promowrapper" th:each="productsNew:${ productsNew }">
         <li>
             <div class="thumbnail">
-                <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" title="add to cart"><span class="icon-search"></span> Xem Chi Tiết </a>
                 <img th:src="@{/user/img/{img}(img=${productsNew.img})}"  alt="bootstrap ecommerce templates">
-                    <h4><a class="defaultBtn" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" >VIEW</a> <span class="pull-right" th:text="${#numbers.formatDecimal(productsNew.price, 0, 'POINT', 0, 'COMMA')}"></span></h4>
+                    <h4><a class="defaultBtn" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" > Chi Tiết </a> <span class="pull-right" th:text="${#numbers.formatDecimal(productsNew.price, 0, 'POINT', 0, 'COMMA')}"></span></h4>
             </div>
         </li>
         <li style="border:0"> &nbsp;</li>
@@ -48,7 +48,7 @@
                             <div th:each="productsNew:${ productsNew }">
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                        <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" title="add to cart"><span class="icon-search"></span> Xem Chi Tiết </a>
                                         <a><img th:src="@{/user/img/{img}(img=${productsNew.img})}" ></a>
                                     </div>
                                 </li>
@@ -60,7 +60,7 @@
                             <div th:each="productsNew:${ productsNew }">
                                 <li class="span3">
                                     <div class="thumbnail">
-                                        <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                        <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" title="add to cart"><span class="icon-search"></span> Xem Chi Tiết </a>
                                         <a><img th:src="@{/user/img/{img}(img=${productsNew.img})}" ></a>
                                     </div>
                                 </li>
@@ -77,21 +77,21 @@
     Featured Products
     -->
 
-    <h3>New Products </h3>
+    <h3>Sản Phẩm Mới </h3>
     <div class="well well-small">
-        <h3><a class="btn btn-mini pull-right" th:href="@{/pages/2}" title="View more">VIew More<span class="icon-plus"></span></a> Featured Products  </h3>
+        <h3><a class="btn btn-mini pull-right" th:href="@{/pages/2}" title="View more">Xem Thêm<span class="icon-plus"></span></a> Featured Products  </h3>
         <hr class="soften"/>
         <div class="row-fluid">
             <ul class="thumbnails" >
                 <div th:each="products:${ products }">
                 <li class="span4"   >
                     <div class="thumbnail"  >
-                        <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${products.id_product})}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                        <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${products.id_product})}" title="add to cart"><span class="icon-search"></span> Xem Chi Tiết </a>
                         <a><img th:src="@{/user/img/{img}(img=${products.img})}" ></a>
                         <div class="caption">
                             <a th:href="@{/chi-tiet-san-pham/{id}(id=${products.id_product})}" ><h5 th:utext="${products.name}"></h5></a>
                             <h4>
-                                <a class="defaultBtn" th:href="@{/chi-tiet-san-pham/{id}(id=${products.id_product})}" title="Click to view"><span class="icon-zoom-in"></span></a>
+                                <a class="defaultBtn" th:href="@{/chi-tiet-san-pham/{id}(id=${products.id_product})}" title="Xem Chi Tiết"><span class="icon-zoom-in"></span></a>
 
                                 <span th:text="${#numbers.formatDecimal(products.price, 0, 'POINT', 0, 'COMMA')}"></span><td> ₫</td>
                             </h4>

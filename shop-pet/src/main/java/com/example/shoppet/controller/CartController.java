@@ -19,7 +19,7 @@ public class CartController extends BaseController{
     @Autowired
     private CartServiceImpl cartService = new CartServiceImpl();
 
-    @RequestMapping(value = "/gio-hang")
+    @RequestMapping(value = {"/gio-hang","/pages/5"} )
     public ModelAndView Index(HttpSession session) {
         HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>)session.getAttribute("Cart");
         _mvShare.addObject("Cart",cart);

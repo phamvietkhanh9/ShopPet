@@ -13,6 +13,41 @@ public class ProductDao extends BaseDao {
 
     private final boolean YES = true;
     private final boolean NO = false;
+//admin
+//    private String sqlString(){
+//        StringBuffer  varname1 = new StringBuffer();
+//        varname1.append("SELECT ");
+//        varname1.append("p.id as id_product ");
+//        varname1.append(", p.id_category ");
+//        varname1.append(", p.size ");
+//        varname1.append(", p.name ");
+//        varname1.append(", p.price ");
+//        varname1.append(", p.sale ");
+//        varname1.append(", p.title ");
+//        varname1.append(", p.highlight ");
+//        varname1.append(", p.new_product ");
+//        varname1.append(", p.detail ");
+//        varname1.append(", c.id as id_color ");
+//        varname1.append(", c.name as name_color ");
+//        varname1.append(", c.code as code_color ");
+//        varname1.append(", c.img ");
+//        varname1.append(", p.created_at ");
+//        varname1.append(", p.updated_at ");
+//        varname1.append("FROM ");
+//        varname1.append("products AS p ");
+//        varname1.append("INNER JOIN ");
+//        varname1.append("colors AS c ");
+//        varname1.append("ON p.id = c.id_product ");
+//        return varname1.toString();
+//    }
+ public List<ProductsDto> GetDataProductsA() {
+    String sql = SqlProducts(YES , NO);
+    List<ProductsDto> listProducts = _jdbcTemplate.query(sql, new ProductsDtoMapper());
+    return listProducts;
+ }
+
+
+
 
     private StringBuffer SqlString() {
         StringBuffer sql = new StringBuffer();
