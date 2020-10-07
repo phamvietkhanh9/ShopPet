@@ -24,6 +24,8 @@ public class CartController extends BaseController{
         HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>)session.getAttribute("Cart");
         _mvShare.addObject("Cart",cart);
         _mvShare.setViewName("user/cart");
+//        session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
+//		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
         return _mvShare;
     }
 

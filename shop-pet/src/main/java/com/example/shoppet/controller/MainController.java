@@ -52,7 +52,8 @@ public class MainController {
         String userInfo = WebUtils.toString(loginedUser);
         model.addAttribute("userInfo", userInfo);
 
-        return "admin/userInfoPage";
+//        return "admin/userInfoPage";
+        return "user/Index";
     }
 
     @RequestMapping(value = "/403", method = RequestMethod.GET)

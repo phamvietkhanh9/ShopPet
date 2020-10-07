@@ -231,6 +231,7 @@ body {
 }
 
 a {
+  padding-right:6px;
   color: #0088cc;
   text-decoration: none;
 }
@@ -3999,7 +4000,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .nav-list > li > a {
-  padding: 3px 15px;
+  padding: 12px 50px;
 }
 
 .nav-list > .active > a,
