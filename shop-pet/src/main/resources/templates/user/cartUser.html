@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:utext="${title}"></title>
+    <head th:replace="layout/user/_layout :: head(title='Home')"></head>
+</head>
+<body>
+<!--
+	Upper Header Section
+-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <head th:replace="layout/user/_layout :: header "></head>
+</div>
+
+<!--
+Lower Header Section
+-->
+<div class="container">
+    <div id="gototop"> </div>
+    <header id="header">
+        <head th:replace="layout/user/_layout :: top"></head>
+    </header>
+    <!--
+    Navigation Bar Section
+    -->
+    <div class="navbar">
+        <head th:replace="layout/user/_menu :: menu"></head>
+    </div>
+    <!--
+    Body Section
+    -->
+    <head th:replace="layout/user/_bodyCartUser :: cart"></head>
+    <!--
+    Clients
+    -->
+    <section class="our_client">
+        <hr class="soften"/>
+        <h4 class="title cntr"><span class="text">Manufactures</span></h4>
+        <hr class="soften"/>
+        <div class="row">
+            <div class="span2">
+                <a href="#"><img alt="" src="/user/img/1.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="/user/img/2.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="/user/img/3.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="/user/img/4.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="/user/img/5.png"></a>
+            </div>
+            <div class="span2">
+                <a href="#"><img alt="" src="/user/img/6.png"></a>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    Footer
+    -->
+    <head th:replace="layout/user/_footer :: footer"></head>
+
+</div><!-- /container -->
+
+<div class="copyright">
+    <head th:replace="layout/user/_layout :: footer"></head>
+</div>
+<a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
+
+
+<head th:replace="layout/user/_layout :: js"></head>
+</body>
+</html>

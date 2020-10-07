@@ -24,8 +24,18 @@ public class CartController extends BaseController{
         HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>)session.getAttribute("Cart");
         _mvShare.addObject("Cart",cart);
         _mvShare.setViewName("user/cart");
+        _mvShare.addObject("TotalPriceCart", cartService.TotalPrice(cart));
 //        session.setAttribute("TotalQuantyCart", cartService.TotalQuanty(cart));
 //		session.setAttribute("TotalPriceCart", cartService.TotalPrice(cart));
+        return _mvShare;
+    }
+
+    @RequestMapping(value = {"/gio-hang2"} )
+    public ModelAndView IndexCart(HttpSession session) {
+        HashMap<Long, CartDto> cart = (HashMap<Long, CartDto>)session.getAttribute("Cart");
+        _mvShare.addObject("Cart",cart);
+        _mvShare.setViewName("user/cartUser");
+        _mvShare.addObject("TotalPriceCart", cartService.TotalPrice(cart));
         return _mvShare;
     }
 
