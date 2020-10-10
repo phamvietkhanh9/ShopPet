@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.example.shoppet.dto.CartDto;
 import com.example.shoppet.dto.ProductsDto;
+import com.example.shoppet.entity.user.ReceiptItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

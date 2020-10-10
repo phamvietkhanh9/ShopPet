@@ -14,30 +14,36 @@
                 <h3>Giỏ Hàng </h3>
                 <hr class="soften"/>
                 <div class="well">
-                    <form class="form-horizontal" >
+                  <form th:object="${order}" th:action="@{saveOrder}" method='POST' >
+                    <form class="form-horizontal"  >
                         <h3>Thông Tin Đơn Hàng</h3>
                         <div class="control-group">
                             <label class="control-label"> Họ Tên <sup>*</sup></label>
                             <div class="controls">
-                                <input type="text" placeholder=" Field name">
+                                <input type="text" th:field="*{name}" placeholder=" Field name" value="">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"> Email <sup>*</sup></label>
                             <div class="controls">
-                                <input type="text" placeholder=" Field name">
+                                <input type="text" th:field="*{email}" placeholder=" Email " value="" >
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"> Địa Chỉ <sup>*</sup></label>
                             <div class="controls">
-                                <input type="text" placeholder=" Field name">
+                                <input type="text" th:field="*{Address}" placeholder=" Địa chỉ ">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"> Số Điện Thoại <sup>*</sup></label>
                             <div class="controls">
-                                <input type="text" placeholder=" Field name">
+                                <input type="number" th:field="*{phone}" placeholder=" Số điện thoại ">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="submit" name="submitAccount" value="Register" class="exclusive shopBtn">
                             </div>
                         </div>
                     </form>
@@ -89,14 +95,8 @@
                     <div>
                         <h3>Tổng Tiền:</h3><h4 th:text="${#numbers.formatDecimal(TotalPriceCart, 0, 'POINT', 0, 'COMMA')}">₫</h4>
                     </div>
-                    </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <input type="submit" name="submitAccount" value="Register" class="exclusive shopBtn">
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                  </form>
+            </div>
         </div>
     </div>
 </div>
