@@ -3,6 +3,8 @@ package com.example.shoppet.service.admin;
 
 import com.example.shoppet.dao.admin.AppRoleDao;
 import com.example.shoppet.dao.admin.AppUserDao;
+import com.example.shoppet.dao.user.UserDao;
+import com.example.shoppet.entity.Users;
 import com.example.shoppet.entity.admin.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -11,6 +13,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -24,6 +27,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     private AppRoleDao appRoleDAO;
+
+    @Autowired
+    UserDao userDao = new UserDao();
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
@@ -53,5 +59,25 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
         return userDetails;
     }
+
+
+
+    public int addAccount(AppUser appUser){
+        appUser.setEncrytedPassword(BCrypt.hashpw(appUser.getEncrytedPassword(),BCrypt.gensalt(12)));
+        return  appUserDAO.AddAccount(appUser);
+    }
+
+//    public boolean CheckAccount(Users user){
+//        String pass = user.getPassword();
+//        user =  userDao.GetAccount(user);
+//        if (user != null){
+//            if (BCrypt.checkpw(pass,user.getPassword())){
+//                return true;
+//            }else {
+//                return false;
+//            }
+//        }
+//        return false;
+//    }
 
 }

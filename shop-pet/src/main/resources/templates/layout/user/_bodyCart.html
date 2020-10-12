@@ -29,11 +29,12 @@
                      <td>
                          <img width="100" th:src="@{/user/img/{img}(img=${item.value.product.img})}" alt=""></td>-
                         <td><p th:text="${item.value.product.name}"></p> </td>
-<!--                        <td><span class="shopBtn" th:style="background-color:${item.value.product.color};"><span class="icon-ok"></span></span> </td>-->
+<!--                        <td><span class="shopBtn" th:style="background-color:${item.value.product.code_color} "><span class="icon-ok"></span></span> </td>-->
                         <td><span ><span th:text="${#numbers.formatDecimal(item.value.product.price, 0, 'POINT', 0, 'COMMA')}" ></span></span> </td>
 
                         <td>
-                            <input class="span1"  style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="number" min="0" max="1000" value="1">
+<!--                            <input class="span1"  style="max-width:34px" placeholder="1"  size="16" type="number" min="0" max="1000" value="1">-->
+                            <input class="span1"  style="max-width:34px" placeholder="1"  id="quanty_cart-${item.key} " size="16" type="number" min="0" max="1000" value="1">
                         </td>
 <!--                        -->
 <!--                        <td>-->
@@ -47,9 +48,9 @@
 <!--                            >-->
 <!--                        </td>-->
                         <td>
-                            <a class="shopBtn" th:href="@{/EditCart/1}">
+                            <button th:onclick="EditQuantCart(id)" class="shopBtn" th:href="@{/EditCart/{id}(id=${ item.key })}">
                             <span class="icon-edit"></span>
-                            </a>
+                            </button>
                         </td>
                         <td>
                             <a class="shopBtn" th:href="@{/DeleteCart/{id}(id=${ item.key })}" >
@@ -67,6 +68,16 @@
             </div>
         </div>
     </div>
+    <script>
+
+        function EditQuantCart() {
+            var id = $(this).data("id");
+            var quanty = $("#quanty-cart" + id ).val();
+            alert(quanty);
+        }
+
+    </script>
+
 
 </div>
 </html>

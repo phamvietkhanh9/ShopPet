@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="row" th:fragment="body" >
+    <div id="sidebar" class="span3" >
+
+        <head th:replace="layout/user/_layout :: topr"></head>
+
+        <div class="well well-small alert alert-warning cntr">
+            <h2> Giảm Giá 50% </h2>
+            <p>
+                <br><br>
+                <!--            <a class="defaultBtn" href="#">Click here </a>-->
+            </p>
+        </div>
+        <div class="well well-small" ><a href="#"><img src="/user/img/paypal.jpg" alt="payment method paypal"></a></div>
+
+        <a class="shopBtn btn-block" href="#">Sản phẩm sắp ra mắt <br><small></small></a>
+        <br>
+        <br>
+        <ul class="nav nav-list promowrapper" th:each="productsNew:${ productsNew }">
+            <li>
+                <div class="thumbnail">
+                    <a class="zoomTool" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" title="add to cart"><span class="icon-search"></span> Xem Chi Tiết </a>
+                    <img th:src="@{/user/img/{img}(img=${productsNew.img})}"  alt="bootstrap ecommerce templates">
+                    <h4><a class="defaultBtn" th:href="@{/chi-tiet-san-pham/{id}(id=${productsNew.id_product})}" > Chi Tiết </a> <span class="pull-right" th:text="${#numbers.formatDecimal(productsNew.price, 0, 'POINT', 0, 'COMMA')}"></span></h4>
+                </div>
+            </li>
+            <li style="border:0"> &nbsp;</li>
+
+        </ul>
+    </div>
+    <div class="span9">
+
+    </div>
+</div>
+</html>

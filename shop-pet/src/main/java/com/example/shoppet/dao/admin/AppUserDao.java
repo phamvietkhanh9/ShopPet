@@ -1,5 +1,6 @@
 package com.example.shoppet.dao.admin;
 
+import com.example.shoppet.dao.user.BaseDao;
 import com.example.shoppet.entity.admin.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,7 +12,7 @@ import javax.persistence.Query;
 
 @Repository
 @Transactional
-public class AppUserDao {
+public class AppUserDao extends BaseDao {
     @Autowired
     private EntityManager entityManager;
 
@@ -27,6 +28,26 @@ public class AppUserDao {
         } catch (NoResultException e) {
             return null;
         }
+    }
+
+
+    public int AddAccount(AppUser appUser){
+        StringBuffer  sql = new StringBuffer();
+        sql.append("INSERT ");
+        sql.append("INTO `app_user` ");
+        sql.append("( ");
+        sql.append("    `user_name`, ");
+        sql.append("    `encryted_password`, ");
+        sql.append("    `enabled` ");
+        sql.append(") ");
+        sql.append("    VALUES ");
+        sql.append("    ( ");
+        sql.append("        '"+appUser.getUserName()+"', ");
+        sql.append("        '"+appUser.getEncrytedPassword()+"', ");
+        sql.append("        '"+1+"' ");
+        sql.append("    )");
+        int insert = _jdbcTemplate.update(sql.toString());
+        return insert;
     }
 
 }

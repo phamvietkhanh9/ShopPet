@@ -14,31 +14,37 @@
                 <h3>Giỏ Hàng </h3>
                 <hr class="soften"/>
                 <div class="well">
-                  <form th:object="${order}" th:action="@{saveOrder}" method='POST' >
+                  <form th:object="${bills}" th:each="item:${Cart}" th:action="@{/checkout}" method='POST' >
                     <form class="form-horizontal"  >
                         <h3>Thông Tin Đơn Hàng</h3>
                         <div class="control-group">
                             <label class="control-label"> Họ Tên <sup>*</sup></label>
                             <div class="controls">
-                                <input type="text" th:field="*{name}" placeholder=" Field name" value="">
+                                <input type="text" th:field="*{display_name}" placeholder=" Field name" value="">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"> Email <sup>*</sup></label>
                             <div class="controls">
-                                <input type="text" th:field="*{email}" placeholder=" Email " value="" >
+                                <input type="text" th:field="*{user}"  placeholder=" Email" >
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"> Địa Chỉ <sup>*</sup></label>
                             <div class="controls">
-                                <input type="text" th:field="*{Address}" placeholder=" Địa chỉ ">
+                                <input type="text" th:field="*{address}" placeholder=" Địa chỉ ">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label"> Số Điện Thoại <sup>*</sup></label>
                             <div class="controls">
                                 <input type="number" th:field="*{phone}" placeholder=" Số điện thoại ">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"> Ghi chu <sup>*</sup></label>
+                            <div class="controls">
+                                <input type="number" th:field="*{note}" placeholder=" Ghi Chu ">
                             </div>
                         </div>
                         <div class="control-group">

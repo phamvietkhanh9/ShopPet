@@ -5,12 +5,12 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "OrdersCart" )
+//@Table(name = "OrdersCart" )
 @Data
 public class OrdersCart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String name;
 
@@ -22,11 +22,14 @@ public class OrdersCart {
 
     private String NameProduct;
 
-    public Long getId() {
+    public OrdersCart() {
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 

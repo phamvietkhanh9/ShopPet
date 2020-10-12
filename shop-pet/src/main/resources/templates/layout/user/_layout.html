@@ -27,10 +27,12 @@
             </div>
             <a class="active" href="/"> <span class="icon-home"></span> Trang Chủ</a>
             <a></a>
-            <a href="/login"><span class="icon-/user"></span> Đăng Nhập </a>
-            <a href="/"><span class="icon-edit"></span> Đăng Kí </a>
+            <a href="/dang-ky"><span class="icon-/user"></span> Đăng Nhập </a>
+            <a href="/dang-ky"><span class="icon-edit"></span> Đăng Kí </a>
             <a href="/contact"><span class="icon-envelope"></span> Liên Hệ </a>
-            <a href="/gio-hang"><span class="icon-shopping-cart"></span><span class="badge badge-warning"></span></a>
+            <a href="/gio-hang"><span class="icon-shopping-cart"></span><span class="badge badge-warning"></span> Giỏ Hàng </a>
+            <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}">Logout</a>
+            <a th:if="${#request.userPrincipal != null}" th:href="@{/product/list}"> Admin </a>
         </div>
     </div>
     </div>

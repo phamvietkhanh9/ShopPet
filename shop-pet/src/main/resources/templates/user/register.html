@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:utext="${title}"></title>
+    <head th:replace="layout/user/_layout :: head(title='Home')"></head>
+</head>
+<body>
+<!--
+	Upper Header Section
+-->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <head th:replace="layout/user/_layout :: header "></head>
+</div>
+
+<!--
+Lower Header Section
+-->
+<div class="container">
+    <div id="gototop"> </div>
+    <header id="header">
+        <head th:replace="layout/user/_layout :: top"></head>
+    </header>
+    <!--
+    Navigation Bar Section
+    -->
+    <div class="navbar">
+        <head th:replace="layout/user/_menu :: menu"></head>
+    </div>
+    <!--
+    Body Section
+    -->
+    <div class="spank">
+        <ul class="breadcrumb">
+            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li class="active">Login</li>
+        </ul>
+        <h3>  Nguoi dung </h3>
+        <hr class="soft"/>
+
+        <div class="row">
+            <div class="span4">
+                <div class="well">
+                    <h5>CREATE YOUR ACCOUNT</h5><br/>
+                    <form th:action="@{/register}"  th:object="${appUser}" method="POST">
+                        <div class="control-group">
+                            <label class="control-label" >E-mail address</label>
+                            <div class="controls">
+                                <input class="span3" th:field="*{userName}"  type="text" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label"  >PassWord</label>
+                            <div class="controls">
+                                <input class="span3" th:field="*{encrytedPassword}"  type="password" placeholder="PassWord">
+                            </div>
+                        </div>
+                        <div class="controls">
+                            <button type="submit" class="btn block">Create Your Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="span1"> &nbsp;</div>
+            <div class="span4">
+                <div class="well">
+                    <h5>ALREADY REGISTERED ?</h5>
+<!--                    <h3 th:text="${statusLogin}"></h3>-->
+                    <form th:action="@{/j_spring_security_check}"  method="POST">
+                        <div class="control-group">
+                            <label class="control-label" >Email</label>
+                            <div class="controls">
+                                <input class="span3" name='username'   type="text" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" >Password</label>
+                            <div class="controls">
+                                <input class="span3" name='password'  type="password" placeholder="PassWord">
+                            </div>
+                        </div>
+                        <div class="control-group">
+<!--                            <div class="controls">-->
+<!--                                <button type="submit" class="defaultBtn">Sign in</button> <a href="#">Forget password?</a>-->
+<!--                            </div>-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        Clients
+        -->
+    <!--    <section class="our_client">-->
+    <!--        <hr class="soften"/>-->
+    <!--        <h4 class="title cntr"><span class="text">Manufactures</span></h4>-->
+    <!--        <hr class="soften"/>-->
+    <!--        <div class="row">-->
+    <!--            <div class="span2">-->
+    <!--                <a href="#"><img alt="" src="/user/img/1.png"></a>-->
+    <!--            </div>-->
+    <!--            <div class="span2">-->
+    <!--                <a href="#"><img alt="" src="/user/img/2.png"></a>-->
+    <!--            </div>-->
+    <!--            <div class="span2">-->
+    <!--                <a href="#"><img alt="" src="/user/img/3.png"></a>-->
+    <!--            </div>-->
+    <!--            <div class="span2">-->
+    <!--                <a href="#"><img alt="" src="/user/img/4.png"></a>-->
+    <!--            </div>-->
+    <!--            <div class="span2">-->
+    <!--                <a href="#"><img alt="" src="/user/img/5.png"></a>-->
+    <!--            </div>-->
+    <!--            <div class="span2">-->
+    <!--                <a href="#"><img alt="" src="/user/img/6.png"></a>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </section>-->
+
+    <!--
+    Footer
+    -->
+    <head th:replace="layout/user/_footer :: footer"></head>
+
+</div><!-- /container -->
+
+<div class="copyright">
+    <head th:replace="layout/user/_layout :: footer"></head>
+</div>
+<a href="#" class="gotop"><i class="icon-double-angle-up"></i></a>
+
+
+<head th:replace="layout/user/_layout :: js"></head>
+</body>
+</html>

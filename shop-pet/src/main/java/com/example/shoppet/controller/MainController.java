@@ -36,7 +36,7 @@ public class MainController {
     @RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
     public String logoutSuccessfulPage(Model model) {
         model.addAttribute("title", "Logout");
-        return "user/Index" ;
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
