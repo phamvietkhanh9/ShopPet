@@ -1,16 +1,15 @@
 package com.example.shoppet.dao.user;
 
-import com.example.shoppet.dto.ProductsDto;
-import com.example.shoppet.dto.ProductsDtoMapper;
+import com.example.shoppet.dto.BillsDto;
+import com.example.shoppet.dto.BillsDtoMapper;
+import com.example.shoppet.dto.CartDto;
 import com.example.shoppet.entity.user.BillDetail;
 import com.example.shoppet.entity.user.Bills;
-import com.example.shoppet.entity.user.Categorys;
-import com.example.shoppet.entity.user.MapperCategorys;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class BillsDao extends BaseDao {
@@ -69,13 +68,21 @@ public class BillsDao extends BaseDao {
         return insert;
     }
 
-    public List<Bills> GetDataBills(){
-        List<Bills> list = new ArrayList<Bills>();
-        String sql = "SELECT * FROM bills";
-        list = _jdbcTemplate.query(sql, new MapperBills());
+    public List<BillsDto> GetDataBills(){
+        List<BillsDto> list = new ArrayList<BillsDto>();
+        String sql = "SELECT * FROM bills INNER JOIN billdetail JOIN products ";
+        list = _jdbcTemplate.query(sql, new BillsDtoMapper());
         return list;
     }
 
+
+
+
+    public HashMap<Long, BillsDto> DeleteBill(long id, HashMap<Long, BillsDto> bill) {
+
+        bill.remove(id);
+        return bill;
+    }
 
 
     public List<Bills> GetBillByID(long id) {

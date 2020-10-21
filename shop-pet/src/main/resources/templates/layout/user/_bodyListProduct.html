@@ -29,25 +29,47 @@
                 </li>
             </div>
         </ul>
+        <div class="col-md-4" >
+            <div class="float-right" >
+                <ul class="pagination"  th:if="${pagination.getTotalPages() > 1}" >
+                    <li class="page-item" th:if="${page>1}">
+                        <a class="page-link" th:href="@{/pages/2(page=${page}-1, limit=${limit})}">Previous</a>
+                    </li>
+                    <li class="page-item" th:if="${page>1}">
+                        <a class="page-link" th:href="@{/pages/2(page=${page}-1, limit=${limit})}"
+                           th:text="${page}-1"></a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#" th:text="${page}"></a></li>
+                    <li class="page-item" th:if="${page<pagination.getTotalPages()}">
+                        <a class="page-link" th:href="@{/pages/2(page=${page}+1, limit=${limit})}"
+                           th:text="${page}+1"></a>
+                    </li>
+                    <li class="page-item" th:if="${page<pagination.getTotalPages()}">
+                        <a class="page-link"
+                           th:href="@{/pages/2(page=${page}+1, limit=${limit})}">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 <!--    <div class="col-md-4">-->
 <!--        <div class="float-right" th:if="${pagination.getTotalPages() > 1}">-->
 <!--            <ul class="pagination">-->
 <!--                <li class="page-item" th:if="${page>1}">-->
-<!--                    <a class="page-link" th:href="@{/products/list(page=${page}-1, limit=${limit})}">Previous</a>-->
+<!--                    <a class="page-link" th:href="@{/pages/2(page=${page}-1, limit=${limit})}">Previous</a>-->
 <!--                </li>-->
 <!--                <li class="page-item" th:if="${page>1}">-->
-<!--                    <a class="page-link" th:href="@{/products/list(page=${page}-1, limit=${limit})}"-->
+<!--                    <a class="page-link" th:href="@{/pages/2(page=${page}-1, limit=${limit})}"-->
 <!--                       th:text="${page}-1"></a>-->
 <!--                </li>-->
 <!--                <li class="page-item active"><a class="page-link" href="#" th:text="${page}"></a></li>-->
 <!--                <li class="page-item" th:if="${page<pagination.getTotalPages()}">-->
-<!--                    <a class="page-link" th:href="@{/products/list(page=${page}+1, limit=${limit})}"-->
+<!--                    <a class="page-link" th:href="@{/pages/2(page=${page}+1, limit=${limit})}"-->
 <!--                       th:text="${page}+1"></a>-->
 <!--                </li>-->
 <!--                <li class="page-item" th:if="${page<pagination.getTotalPages()}">-->
 <!--                    <a class="page-link"-->
-<!--                       th:href="@{/products/list(page=${page}+1, limit=${limit})}">Next</a>-->
+<!--                       th:href="@{/pages/2(page=${page}+1, limit=${limit})}">Next</a>-->
 <!--                </li>-->
 <!--            </ul>-->
 <!--        </div>-->

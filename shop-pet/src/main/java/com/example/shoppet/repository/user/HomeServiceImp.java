@@ -1,10 +1,9 @@
 package com.example.shoppet.repository.user;
 
 import com.example.shoppet.dao.user.*;
-import com.example.shoppet.dto.CartDto;
+import com.example.shoppet.dto.BillsDto;
 import com.example.shoppet.dto.ProductsDto;
 import com.example.shoppet.entity.Slides;
-import com.example.shoppet.entity.user.BillDetail;
 import com.example.shoppet.entity.user.Bills;
 import com.example.shoppet.entity.user.Categorys;
 import com.example.shoppet.entity.user.Menus;
@@ -44,8 +43,8 @@ public class HomeServiceImp implements IHomeService {
         return listProducts;
     }
 //admin
-    public List<Bills> GetDataOrder() {
-    List<Bills> bills = billsDao.GetDataBills();
+public List<BillsDto> GetDataOrder() {
+    List<BillsDto> bills = billsDao.GetDataBills();
     return bills;
 }
 
