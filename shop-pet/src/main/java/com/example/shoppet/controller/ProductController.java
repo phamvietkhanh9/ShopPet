@@ -56,6 +56,7 @@ public class ProductController extends BaseController{
 //        model.addAttribute("products", _homeServiceImp.GetDataProducts());
 //        return "/admin/product/product-list";
 //    }
+    //admin
     @RequestMapping(path = "/product/list", method = RequestMethod.GET)
     public ModelAndView getListProduct( Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "10") int limit) {
         _mvShare.setViewName("/admin/product/product-list");;

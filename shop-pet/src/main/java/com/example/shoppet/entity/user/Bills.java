@@ -9,6 +9,8 @@ public class Bills {
     private double total;
     private int quanty;
     private String note;
+    private String name_product;
+
 
     public Bills(){
         super();
@@ -76,5 +78,13 @@ public class Bills {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getName_product() {
+        return name_product;
+    }
+
+    public void setName_product(String name_product) {
+        this.name_product = name_product;
     }
 }

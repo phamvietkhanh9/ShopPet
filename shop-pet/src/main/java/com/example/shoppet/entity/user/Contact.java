@@ -18,5 +18,4 @@ public class Contact {
 
     private String message;
 
-
 }

@@ -1,12 +1,11 @@
 package com.example.shoppet.repository.user;
 
-import com.example.shoppet.dao.user.CategoryDao;
-import com.example.shoppet.dao.user.MenuDao;
-import com.example.shoppet.dao.user.ProductDao;
-import com.example.shoppet.dao.user.SlidesDao;
+import com.example.shoppet.dao.user.*;
 import com.example.shoppet.dto.CartDto;
 import com.example.shoppet.dto.ProductsDto;
 import com.example.shoppet.entity.Slides;
+import com.example.shoppet.entity.user.BillDetail;
+import com.example.shoppet.entity.user.Bills;
 import com.example.shoppet.entity.user.Categorys;
 import com.example.shoppet.entity.user.Menus;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +23,8 @@ public class HomeServiceImp implements IHomeService {
     private MenuDao menuDao;
     @Autowired
     private ProductDao productDao;
+    @Autowired
+    private BillsDao billsDao;
 
     @Override
     public List<Slides> GetDataSlide() {
@@ -42,6 +43,13 @@ public class HomeServiceImp implements IHomeService {
         List<ProductsDto> listProducts = productDao.GetDataProducts();
         return listProducts;
     }
+//admin
+    public List<Bills> GetDataOrder() {
+    List<Bills> bills = billsDao.GetDataBills();
+    return bills;
+}
+
+
 
     public List<ProductsDto> GetDataProductsA() {
         List<ProductsDto> listProducts = productDao.GetDataProductsA();

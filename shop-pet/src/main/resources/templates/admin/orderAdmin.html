@@ -17,17 +17,17 @@
                 <div class="alert alert-danger d-none" role="alert" id="messageError"></div>
                 <table class="table table-striped">
                     <tr class="row">
-                        <th class="col-md-4">Name</th>
-                        <th class="col-md-2">Email</th>
-                        <th class="col-md-2">Message</th>
+                        <th class="col-md-2">Tên</th>
+                        <th class="col-md-2">Số Điện thoại</th>
+                        <th class="col-md-2">Địa Chỉ</th>
                         <th class="col-md-2">Action</th>
                     </tr>
-                    <tr  class="row" th:each="contact:${contacts}">
-                        <td class="col-md-4" th:text="${contact.name}"></td>
-                        <td class="col-md-2" th:text="${contact.email}"></td>
-                        <td class="col-md-2" th:text="${contact.message}"></td>
+                    <tr class="row" th:each="order:${order}">
+                        <td class="col-md-2" th:text="${order.user}"></td>
+                        <td class="col-md-2" th:text="${order.phone}"></td>
+                        <td class="col-md-2" th:text="${order.address}"></td>
                         <td class="col-md-2">
-                            <a th:href="@{/delete?id={id}(id=${contact.id})}" class="btn btn-danger"> Delete </a>
+                            <a th:href="@{/chi-tiet-bill/{id}(id=${order.id})}" class="btn btn-danger"> Chi Tiet </a>
                         </td>
                     </tr>
                 </table>

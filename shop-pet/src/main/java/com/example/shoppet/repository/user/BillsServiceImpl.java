@@ -33,6 +33,9 @@ public class BillsServiceImpl implements IBillsService{
             billDetail.setTotal(itemCart.getValue().getTotalPrice());
             billsDao.AddBillsDetail(billDetail);
         }
-
     }
+
+
+
+
 }

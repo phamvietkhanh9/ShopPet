@@ -48,7 +48,6 @@ public class ProductDao extends BaseDao {
 
 
 
-
     private StringBuffer SqlString() {
         StringBuffer sql = new StringBuffer();
         sql.append("SELECT ");

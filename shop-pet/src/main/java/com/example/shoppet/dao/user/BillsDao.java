@@ -1,10 +1,16 @@
 package com.example.shoppet.dao.user;
 
+import com.example.shoppet.dto.ProductsDto;
+import com.example.shoppet.dto.ProductsDtoMapper;
 import com.example.shoppet.entity.user.BillDetail;
 import com.example.shoppet.entity.user.Bills;
-import com.example.shoppet.entity.user.OrdersCart;
-import com.example.shoppet.entity.user.OrdersCartDetail;
+import com.example.shoppet.entity.user.Categorys;
+import com.example.shoppet.entity.user.MapperCategorys;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public class BillsDao extends BaseDao {
@@ -61,6 +67,33 @@ public class BillsDao extends BaseDao {
         sql.append(") ");
         int insert = _jdbcTemplate.update(sql.toString());
         return insert;
+    }
+
+    public List<Bills> GetDataBills(){
+        List<Bills> list = new ArrayList<Bills>();
+        String sql = "SELECT * FROM bills";
+        list = _jdbcTemplate.query(sql, new MapperBills());
+        return list;
+    }
+
+
+
+    public List<Bills> GetBillByID(long id) {
+        String sql = SqlBillsByID(id);
+        List<Bills> listProduct = _jdbcTemplate.query(sql, new MapperBills());
+        return listProduct;
+    }
+
+    public Bills FindBillsByID(long id) {
+        String sql = SqlBillsByID(id);
+        Bills Bills = _jdbcTemplate.queryForObject(sql, new MapperBills());
+        return Bills;
+    }
+    private String SqlBillsByID(long id) {
+        StringBuffer  sql = new StringBuffer();
+        sql.append("SELECT * FROM `bills` ");
+        sql.append("WHERE id = " + id + " ");
+        return sql.toString();
     }
 
 }
